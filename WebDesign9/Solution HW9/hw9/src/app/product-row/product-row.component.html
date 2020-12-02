@@ -1,0 +1,16 @@
+<product-image [product]="product"></product-image>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+<div class="content">
+  <div class="header">{{ product.name }}</div>
+  <div class="meta">
+    <div class="product-sku">SKU #{{ product.sku }}</div>
+  </div>
+  <div class="description">
+    <product-department [product]="product"></product-department>
+  </div>
+</div>
+<price-display [price]="product.price"></price-display>
+<modal-button [product] ="product"></modal-button>
+<modal-content [product] = "product"></modal-content>

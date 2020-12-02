@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Feedback</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    label {	float: left;
+			width: 150px;}
+      #container{
+          width: 700px;
+          margin: auto;
+          background-color: beige;
+      } 
+      main{
+          padding: 50px;
+      }
+  </style>
+ </head>
+ <body>
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <!-- <form method="post" novalidate> -->
+			 <form method="GET"  name="myForm" id="myForm" onsubmit="return checkForm()" action="new.html">
+			<label>Title*:</label>
+			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<span id="checkradio"></span>
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" />
+			<span id="first"></span>
+			<br><br>
+			
+
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+			<span id="last"></span>
+			<br><br>
+			
+
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+			<span id="email"></span>
+			<br><br>
+			
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+			<span id="phone"></span>
+			<br><br>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" />
+			<span id="zip"></span>
+			<br><br>
+             
+            <label for="checkbox">How did you hear*:</label>
+			<input type='checkbox' name="source" value="facebook" /> Facebook
+            <input type='checkbox' name="source" value="google" /> Google
+			<input type='checkbox' name="source" value="yelp" /> Yelp 
+			<span id="checkcheckbox"></span>
+			<br><br> 
+             
+			<label for="comments">Comments*:</label>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+			<span id="comment"></span>
+			<br><br>
+
+			<input type="Submit" id="submit">
+			<input type="Reset">
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+
+ <script>
+     $(document).ready(function(){
+     $("input[type='Submit']").click(function(){
+		 var fName = $('#firstName').val()
+		 if(fName== ""){
+             $('#first').html("Please input your First Name");
+			 $('#first').css({"color":"red"});
+		 }else{
+			$('#first').html("Get FirstName Successfully");
+			$('#first').css({"color":"green"});
+		 }
+        
+
+		 var lName = $('#lastName').val()
+		 if(lName== ""){
+             $('#last').html("Please input your Last Name");
+			 $('#last').css({"color":"red"});
+		 }else{
+			$('#last').html("Get LastName Successfully");
+			$('#last').css({"color":"green"});
+		 }
+		 
+
+		 var comments = $('#comments').val()
+		 if(comments== ""){
+             $('#comment').html("Please input your Comments");
+			 $('#comment').css({"color":"red"});
+		 }else{
+			$('#comment').html("Get comments Successfully");
+			$('#comment').css({"color":"green"});
+		 }
+		 
+
+		 var email = $('#emailId').val()
+		 var emailRegExp=/^[a-zA-Z0-9]+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+		 if(!email.match(emailRegExp)){
+			$('#email').html("Please input valid Email Address");
+			$('#email').css({"color":"red"});
+		 }else{
+			$('#email').html("Get Email Successfully");
+			$('#email').css({"color":"green"});
+		 }
+		 
+
+		 var phone = $('#phoneNumber').val()
+		 var phoneRegExp=/^([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})$/;
+		 if(!phone.match(phoneRegExp)){
+			$('#phone').html("Please input valid Phone Number");
+			$('#phone').css({"color":"red"});
+		 }else{
+			$('#phone').html("Get PhoneNumber Successfully");
+			$('#phone').css({"color":"green"});
+		 }
+		 
+
+		 var zipcode = $('#zipcode').val()
+		 var zipcodeRegExp=/^[0-9]{5}(?:-[0-9]{4})?$/;
+		 if(!zipcode.match(zipcodeRegExp)){
+			$('#zip').html("Please input valid zipcode");
+			$('#zip').css({"color":"red"});
+		 }else{
+			$('#zip').html("Get Zipcode Successfully");
+			$('#zip').css({"color":"green"});
+		 }
+		 
+	
+		var radio=$("input[name='title']:checked").val();
+		if(radio)
+		{
+			document.getElementById("checkradio").innerHTML="Get Information Successfully";
+			document.getElementById("checkradio").style.color="green";
+		}
+		else
+		{
+			document.getElementById("checkradio").innerHTML="Please select one value";
+			document.getElementById("checkradio").style.color="red";
+		}
+		
+
+        var checkbox=$("input[name='source']:checked").val();
+		if(checkbox)
+		{
+			document.getElementById("checkcheckbox").innerHTML="Get Information Successfully";
+			document.getElementById("checkcheckbox").style.color="green";
+		}
+		else
+		{
+			document.getElementById("checkcheckbox").innerHTML="Please select one value";
+			document.getElementById("checkcheckbox").style.color="red";
+		}
+		return false;
+		});
+		
+  });
+
+
+$(function(){
+
+$("#firstName").blur(function(){
+var $fName=$("#firstName").val()
+if($(this).val().length < 4){
+             $('#first').html("Please input your First Name");
+			 $('#first').css({"color":"red"});
+		 }else{
+			$('#first').html("");
+		 }
+});
+
+$("#lastName").blur(function(){
+var $lName=$("#lastName").val()
+if($(this).val().length < 4){
+             $('#last').html("Please input your Last Name");
+			 $('#last').css({"color":"red"});
+		 }else{
+			$('#last').html("");
+		 }
+});
+
+$("#comments").blur(function(){
+var $comments=$("#comments").val()
+if($(this).val().length < 4){
+             $('#comment').html("Please input your Comments");
+			 $('#comment').css({"color":"red"});
+		 }else{
+			$('#comment').html("");
+		 }
+});
+
+$("#emailId").blur(function(){
+var $email=$("#emailId").val()
+var emailRegExp=/^[a-zA-Z0-9]+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/;
+if($(this).val().match(emailRegExp)){
+             $('#email').html("");
+		 }else{
+			$('#email').html("Please input valid Email Address");
+			$('#email').css({"color":"red"});
+		 }
+});
+
+$("#phoneNumber").blur(function(){
+var $phoneNumber=$("#phoneNumber").val()
+var phoneRegExp=/^([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})$/;
+if($(this).val().match(phoneRegExp)){
+             $('#phone').html("");
+		 }else{
+			$('#phone').html("Please input valid phoneNumber");
+			$('#phone').css({"color":"red"});
+		 }
+});
+
+$("#zipcode").blur(function(){
+var $zipcode=$("#zipcode").val()
+var zipcodeRegExp=/^[0-9]{5}(?:-[0-9]{4})?$/;
+if($(this).val().match(zipcodeRegExp)){
+             $('#zip').html("");
+		 }else{
+			$('#zip').html("Please input valid zipcode");
+			$('#zip').css({"color":"red"});
+		 }
+});
+
+});
+
+
+</script>
+
+</body>
+</html>

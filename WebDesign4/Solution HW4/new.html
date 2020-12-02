@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 3px;
+}
+
+</style>
+</head>
+<body>
+
+
+<table style="width:80%">
+  <tr>
+    <td>Gender</td>
+    <td><span id="title"></td> 
+    
+  </tr>
+  <tr>
+    <td>First Name</td>
+    <td><span id="first"></span></td>
+    
+  </tr>
+  <tr>
+    <td>Last Name</td>
+    <td><span id="last"></td>
+    
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><span id="emailId"></td>
+    
+  </tr>
+  
+    <td>Phone Number</td>
+    <td><span id="phoneNumber"></td>
+    
+  </tr>
+  
+    <td>Zipcode</td>
+    <td><span id="zipcode"></td>
+    
+  </tr>
+  </tr>
+  
+    <td>Source</td>
+    <td><span id="source"></td>
+    
+  </tr>
+  </tr>
+  
+    <td>comments</td>
+    <td><span id="text"></td>
+    
+  </tr>
+ 
+</table>
+
+</body>
+</html>
+
+
+<script>
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+document.getElementById("title").innerHTML = (GetQueryString("title"));
+document.getElementById("first").innerHTML = (GetQueryString("firstName"));
+document.getElementById("last").innerHTML=(GetQueryString("lastName"));
+document.getElementById("emailId").innerHTML=(GetQueryString("emailId"));
+document.getElementById("phoneNumber").innerHTML=(GetQueryString("phoneNumber"));
+document.getElementById("zipcode").innerHTML=(GetQueryString("zipcode"));
+document.getElementById("source").innerHTML=(GetQueryString("source1"));
+document.getElementById("text").innerHTML=(GetQueryString("text"));
+	</script>

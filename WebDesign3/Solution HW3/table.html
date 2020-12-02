@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<!-- Also read chapter 9 from slides - Regular Expressions -->
+
+<html>
+<head>
+	
+	<title>Table CheckList</title>
+	<link rel="stylesheet" type="text/css" href="table.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+	<table id="myTable">
+		<thead>
+			<tr>
+				<th></th>
+				<th>STUDENT</th>
+				<th>ADVISOR</th>
+				<th>AWARD<br/>STATUS</th>
+				<th>SEMESTER</th>
+				<th>TYPE</th>
+				<th>BUDGET<br />#</th>
+				<th>PERCENTAGE</th>
+				<th>DELETE</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr id="mytr">
+			<td><input type="checkbox" id="mycheck" name="layer" onclick="change(delete1)"/><br /><br /><a><img src="down.png" width="25px" onclick="Hidden('show1')" /></a></td>
+			<td>Student 1</td>
+			<td>Teacher 1</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>12345</td>
+			<td>100%</td>
+			<td><button id="delete1"  hidden onclick="deleteRow(this)" >Delete</button></td>
+		</tr>
+		<tr class="dropDownTextArea" id="show1" style="display: none;"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <br />
+			Tuition Number: <br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr>
+			<td><input type="checkbox" id="mycheck" name="layer" onclick="change(delete2)"/><br /><br /><a><img src="down.png" width="25px" onclick="Hidden('show2')" /></a></td>
+			<td>Student 2</td>
+			<td>Teacher 2</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>23456</td>
+			<td>100%</td>
+			<td><button id="delete2" hidden onclick="deleteRow(this)" >Delete</button></td>
+		</tr>
+		<tr class="dropDownTextArea" id="show2" style="display: none;"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <br />
+			Tuition Number: <br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr>
+			<td><input type="checkbox" id="mycheck" name="layer" onclick="change(delete3)"/><br /><br /><a><img src="down.png" width="25px" onclick="Hidden('show3')" /></a></td>
+			<td>Student 3</td>
+			<td>Teacher 3</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>34567</td>
+			<td>100%</td>
+			<td><button id="delete3" hidden onclick="deleteRow(this)" >Delete</button></td>
+		</tr>
+		<tr class="dropDownTextArea" id="show3" style="display: none;"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <br />
+			Tuition Number: <br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		</tbody>
+	</table>
+
+	<br /><br />
+	
+	<button id="button" disabled>SUBMIT SELECTED AWARDS</button>
+	
+	<input id="add" type="submit" value="Add New Student" onclick="addRow();"></input>
+	
+	
+	<script src="script.js"></script>
+	<nav class="socialmediaicons"></nav>
+	
+	
+</body>
+</html>

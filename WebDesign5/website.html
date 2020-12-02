@@ -1,0 +1,508 @@
+<!-- 10.8 -->
+<!-- 1.add weather alert -->
+<!-- 2.fix navbar,add stickybar,add search按钮 -->
+<!-- 3.addd picture to jumbotron -->
+<!-- 4.update footer -->
+
+<!-- -- 10.10， -->
+<!-- 1.add （glyphicon） -->
+<!-- 2.When you click add to cart, thu number near cart cwill change -->
+<!-- 3.add product see detail's （Modal）  -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>taobaobei</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+    .JumboHeaderImg {
+        background-image: url("title.jpg");
+        background-size: cover;
+    }
+    
+    .subs-footer {
+        background-color: #2F3240;
+        color: #FAF8F8;
+    }
+	.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
+
+<body style="height:1500px">
+    <!-- <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Weather Alert!</strong> Serve winter weather is impacting areas of Malden. There will be no deliveries and pickups today in the affected areas. Sorry for the inconvenience.
+    </div> -->
+    <div class="alert alert-danger alert-dismissable" style="display: none">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+          &times;
+        </button> Sorry, you must login first
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron JumboHeaderImg">
+            <h1 style="text-align:center">Welcome to TaoBaoBei</h1>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="navbar">
+        <a class="navbar-brand" href="#">TaoBaoBei</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<script>
+		window.onscroll = function() {myFunction()};
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+        if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+        } else {
+        navbar.classList.remove("sticky");
+  }
+}
+		</script>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Category</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#section41">Clothing</a>
+                        <a class="dropdown-item" href="#section42">Home & Kitchen</a>
+                        <a class="dropdown-item" href="#section41">Toys & Books</a>
+                        <a class="dropdown-item" href="#section42">Beauty</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section1">Today's Deal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section2">My Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section3">Help</a>
+                        </li>
+                        <li class="nav-item" style="color: rgba(255,255,255,.5);position:relative;top:15px;left: 5px;">
+                            <!-- <button class="btns"> -->
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shopping Cart
+                            <span class="badge" id="shoppingNumber"></span>
+
+                            <!-- </button> -->
+                            <button style="border:none;background:rgba(0,0,0,0)" onclick="showLogin()">
+                            <span class="glyphicon glyphicon-user" ></span> Log in
+                            </button>
+                        </li>
+                    </div>
+                    <div style="display: none;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                                    <button type="button" class="close" onclick="closeLogin()">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">UserName</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Password</label>
+                                            <input type="text" class="form-control" id="recipient-name">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" onclick="closeLogin()">Cancel</button>
+                                    <button type="button" class="btn btn-primary" onclick="confirmLogin()">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        var generalFlag = false;
+
+                        function showLogin() {
+                            $("#exampleModal").css({
+                                display: "block",
+                                position: "absolute",
+                                top: "-200px",
+                                left: "35%"
+                            });
+                        };
+
+                        function closeLogin() {
+                            $("#exampleModal").css({
+                                display: "none"
+                            });
+                        };
+
+                        function confirmLogin() {
+                            generalFlag = true;
+                            $("#exampleModal").css({
+                                display: "none"
+                            });
+                        };
+                    </script>
+
+                    <form class="form-inline" action="/action_page.php">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-success" type="button" id="modalButton">Search</button>
+                    </form>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid"><br>
+
+        <div id="carousel-example" class="carousel slide carousel-fade" data-ride="carousel">
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example" data-slide-to="1"></li>
+                <li data-target="#carousel-example" data-slide-to="2"></li>
+            </ol>
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <!--First slide-->
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://images-na.ssl-images-amazon.com/images/G/01/img18/home/Harmony/storefront/fall_flip_kitchen_desktop_hero.jpg%EF%BB%BF" alt="First slide">
+                </div>
+                <!--/First slide-->
+                <!--Second slide-->
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://images-na.ssl-images-amazon.com/images/G/01/img18/home/Harmony/storefront/fall_flip_hub_desktop_hero.jpg%EF%BB%BF" alt="Second slide">
+                </div>
+                <!--/Second slide-->
+                <!--Third slide-->
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://images-na.ssl-images-amazon.com/images/G/01/BeautyQ4Flip/Halloween-Desktop-Billboard_1500x300px.jpg" alt="Third slide">
+                </div>
+
+            </div>
+        </div>
+
+        <div id="section1" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
+            <h1>Today's Deal</h1>
+            <div class="row" style="padding-bottom: 20px;">
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/61wgYyHxW4L._AC_UL270_SR270,270_.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Gaming Chair</h4>
+                            <p class="card-text"> Adjustable Racing Style for Office and Entertainment, Upgraded Cylinder Configuration for a More Durable and Comfortable</p>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">See Detail</a>
+                            <a href="#" class="btn btn-primary" id="myWish" href="javascript:;" onclick="shop()">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="https://m.media-amazon.com/images/I/81lKxFuw0gL._AC_UL320_ML3_.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Coffee Machine</h4>
+                            <p class="card-text">BNV250CRO1BUC1 Vertuo Coffee and Espresso Machine, 10-cup Drip Coffee Machine with Frothing Wand, Silver and Black</p>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">See Detail</a>
+                            <a href="#" class="btn btn-primary" id="myWish" href="javascript:;" onclick="shop()">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zJVPj38SL._AC_US190_.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Dog Food</h4>
+                            <p class="card-text">Rachael Ray Nutrish Real Chicken & Veggies Recipe is made with simple, natural ingredients, combined with vegetables and added vitamins.</p>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">See Detail</a>
+                            <a href="#" class="btn btn-primary" onclick="shop()">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="card">
+                        <img class="card-img-top" src="https://m.media-amazon.com/images/I/91ZeEoyc6JL._AC_UL320_ML3_.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Lego</h4>
+                            <p class="card-text">LEGO Ideas NASA Apollo Saturn V 21309 Outer Space Model Rocket for Kids and Adults, Science Building Kit (1900 pieces) by LEGO</p>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal4">See Detail</a>
+                            <a href="#" class="btn btn-primary" onclick="shop()">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              &times;
+            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                Gaming Chair
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            Adjustable Racing Style for Office and Entertainment, Upgraded Cylinder Configuration for a More Durable and Comfortable<br> Available Color: Black, White, Red<br> Free Shipping , Arrive in 4 days<br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+            </button>
+                            <button type="button" class="btn btn-primary">
+              Go to the product's page.
+            </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal -->
+            </div>
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                &times;
+              </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                Coffee Machine
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            BNV250CRO1BUC1 Vertuo Coffee and Espresso Machine, 10-cup Drip Coffee Machine with Frothing Wand, Silver and Black<br> Available Color: Black, White, Red<br> Free Shipping , Arrive in 4 days<br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+              </button>
+                            <button type="button" class="btn btn-primary">
+                Go to the product's page.
+              </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal -->
+            </div>
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  &times;
+                </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                Dog Food
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            Rachael Ray Nutrish Real Chicken & Veggies Recipe is made with simple, natural ingredients, combined with vegetables and added vitamins<br> Available Taste: Chiken, Beef, Pork<br> Free Shipping , Arrive in 5 days<br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                </button>
+                            <button type="button" class="btn btn-primary">
+                  Go to the product's page.
+                </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal -->
+            </div>
+            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                  </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                LEGO
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            LEGO Ideas NASA Apollo Saturn V 21309 Outer Space Model Rocket for Kids and Adults, Science Building Kit (1900 pieces) by LEGO<br> Available Color: Black, White<br> Free Shipping , Arrive in 5 days<br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close
+                  </button>
+                            <button type="button" class="btn btn-primary">
+                    Go to the product's page.
+                  </button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal -->
+            </div>
+
+            <script>
+                var goodsNumber = 0;
+
+                function shop() {
+                    if (generalFlag == true) {
+                        goodsNumber++;
+                        document.getElementById("shoppingNumber").innerHTML = `${goodsNumber}`;
+                    } else {
+                        $('.alert').css({
+                            display: "block"
+                        })
+                    }
+                }
+            </script>
+
+            
+            <div id="section2" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
+                <h1>My Orders</h1>
+                <div class="container">
+                    <h2>All Orders</h2>
+                    <p>Find all your orders in the last 12 months</p>
+                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Purchase Date</th>
+                                <th>Deliver Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myTable">
+                            <tr>
+                                <td>NY28736234JHN</td>
+                                <td>Oct 01,2019</td>
+                                <td>Oct 04,2019</td>
+                            </tr>
+                            <tr>
+                                <td>NASNB675736HN</td>
+                                <td>Aug 02,2019</td>
+                                <td>Aug 07,2019</td>
+                            </tr>
+                            <tr>
+                                <td>JHG6598YGJHB0</td>
+                                <td>Jun 02,2019</td>
+                                <td>Jun 07,2019</td>
+                            </tr>
+                            <tr>
+                                <td>KHJBSK87680SS</td>
+                                <td>May 02,2019</td>
+                                <td>May 07,2019</td>
+                            </tr>
+                            <tr>
+                                <td>JOIDF98798YGJ0</td>
+                                <td>Apr 02,2019</td>
+                                <td>Apr 07,2019</td>
+                            </tr>
+                            <tr>
+                                <td>TSDJ87634NJlJI</td>
+                                <td>Mar 02,2019</td>
+                                <td>Mar 07,2019</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>Cannot find your order? Contact us
+                        <a href="#">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </a>
+                    </p>
+
+                </div>
+
+                <script>
+                    $(document).ready(function() {
+                        $("#myInput").on("keyup", function() {
+                            var value = $(this).val().toLowerCase();
+                            $("#myTable tr").filter(function() {
+                                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                            });
+                        });
+                    });
+                </script>
+
+                <div id="section3" class="container-fluid " style="padding-top:70px;padding-bottom:70px">
+                    <h1>Help</h1>
+                    </bt>
+                    </br>
+                    <h3>Hi,what can we help you with?</h3>
+                    </br>
+                    </br>
+                    <ul>
+                        <h4>Return & Refund</h4>
+                    </ul>
+                    <ul>
+                        <h4>Account Setting</h4>
+                    </ul>
+                    <ul>
+                        <h4>Payment Method</h4>
+                    </ul>
+                    <ul>
+                        <h4>Shipping Policy</h4>
+                    </ul>
+                    <ul>
+                        <h4>Managing your orders</h4>
+                    </ul>
+                    <ul>
+                        <h4>More Help</h4>
+                    </ul>
+                </div>
+            </div>
+
+           
+
+            <div class="subs-footer">
+                <div id="section1" class="container-fluid" style="padding-top:4px;padding-bottom:4px">
+                    <h3>SIGN UP FOR NEWS & GET 15% OFF</h3><br>
+                    <div class="form-newsletter">
+                        <div class="input-group newsletter-group">
+                            <span class="wpcf7-form-control-wrap email-632"><input type="email" name="email-632" value="" size="40" class=" newsletter-input form-control" aria-required="true" aria-invalid="false" placeholder="Enter your e-mail"></span>
+                            <p></p>
+                            <div class="input-group-btn text-center padding-top-20"><input type="submit" value="SUBSCRIBE" class="wpcf7-form-control wpcf7-submit btn btn-default"><span class="ajax-loader"></span><span class="arrow-btn"></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                </br>
+                </br>
+
+            </div>
+
+
+
+            <div class="jumbotron text-center" style="margin-bottom:0">
+                <p>
+                    Copyright © 2019 TaoBaoBei
+                    <br>
+                    <a href="email_fake.html">taobaobei@email.com</a>
+                </p>
+            </div>
+
+
+
+
+</body>
+
+</html>

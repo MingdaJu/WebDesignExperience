@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+ <head>
+<script language="JavaScript" type="text/javascript">  
+
+
+
+	
+function judgeFirstName(firstName){
+	
+	if(firstName=="" || firstName==null){
+           document.getElementById("firstError").innerHTML = "&nbsp;&nbsp;First Name is Empty";
+		   document.getElementById("firstError").style.color="red";
+	}else{
+		document.getElementById("firstError").innerHTML="";
+	}
+}
+
+function judgeLastName(lastName){
+	if(lastName=="" || lastName==null){
+           document.getElementById("lastError").innerHTML = "&nbsp;&nbsp;Last Name is Empty";
+		   document.getElementById("lastError").style.color="red";
+	}else{
+		document.getElementById("lastError").innerHTML="";
+	}
+}
+
+function judgeEmail(emailAddress)
+{
+	var emailRegExp=new RegExp(/^[a-zA-Z0-9]+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/);
+	if(!emailRegExp.test(emailAddress)){
+		document.getElementById("emailerror").innerHTML="&nbsp;&nbsp;Invalid Email Addreee";
+		document.getElementById("emailerror").style.color="red";
+	}else{
+		document.getElementById("emailerror").innerHTML="";
+	}
+}
+
+function judgePhoneNumber(PhoneNumber)
+{
+	var PhoneNumberRegExp=new RegExp(/^([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})$/);
+	if(!PhoneNumberRegExp.test(PhoneNumber)){
+		document.getElementById("phoneNumbererror").innerHTML="&nbsp;&nbsp;Invalid Phone Number";
+		document.getElementById("phoneNumbererror").style.color="red";
+	}else{
+		document.getElementById("phoneNumbererror").innerHTML="";
+	}
+}
+
+function judgeZipcode(zipcode)
+{
+	var zipcodeRegExp=new RegExp(/^[0-9]{5}(?:-[0-9]{4})?$/);
+	if(!zipcodeRegExp.test(zipcode)){
+		document.getElementById("zipcodeerror").innerHTML="&nbsp;&nbsp;Invalid Zipcode";
+		document.getElementById("zipcodeerror").style.color="red";
+		
+	}else{
+		document.getElementById("zipcodeerror").innerHTML="";
+	}
+}
+
+function judgeComments(comments){
+	if(comments=="" || comments==null){
+           document.getElementById("commentsError").innerHTML = "&nbsp;&nbsp;Comment is Empty";
+		   document.getElementById("commentsError").style.color="red";
+	}else{
+		document.getElementById("commentsError").innerHTML="";
+	}
+}
+function judgeTextArea(texta){
+	if(texta=="" || texta==null){
+           document.getElementById("texEr").innerHTML = "&nbsp;&nbsp;TextArea is Empty";
+		   document.getElementById("texEr").style.color="red";
+	}else{
+		document.getElementById("texEr").innerHTML="";
+	}
+}
+
+function selectFunction() {
+  var x = document.getElementById("mySelect").value;
+  document.getElementById("myCheck").innerHTML = x;
+  
+}
+
+function handleClick(ele){
+	var theTextArea = myForm.textarea;
+	if(ele.checked == true){
+		theTextArea.style.display = "block";
+	}
+	else {
+		theTextArea.style.display = "none";
+	}
+}
+ 
+ function checkForm(comments,zipcode,PhoneNumber,emailAddress,firstName,lastName,radio){
+	if(comments=="" || comments==null){
+           document.getElementById("commentsError").innerHTML = "&nbsp;&nbsp;Comment is Empty";
+		   document.getElementById("commentsError").style.color="red";
+		   
+	}else{
+		document.getElementById("commentsError").innerHTML="";
+	}
+
+	var zipcodeRegExp=new RegExp(/^[0-9]{5}(?:-[0-9]{4})?$/);
+	if(!zipcodeRegExp.test(zipcode)){
+		document.getElementById("zipcodeerror").innerHTML="&nbsp;&nbsp;Invalid Zipcode";
+		document.getElementById("zipcodeerror").style.color="red";
+		
+	}else{
+		document.getElementById("zipcodeerror").innerHTML="";
+		
+	}
+	var PhoneNumberRegExp=new RegExp(/^([0-9]{3})[-]([0-9]{3})[-]([0-9]{4})$/);
+	if(!PhoneNumberRegExp.test(PhoneNumber)){
+		document.getElementById("phoneNumbererror").innerHTML="&nbsp;&nbsp;Invalid Phone Number";
+		document.getElementById("phoneNumbererror").style.color="red";
+		
+	}else{
+		document.getElementById("phoneNumbererror").innerHTML="";
+		
+	}
+
+	var emailRegExp=new RegExp(/^[a-zA-Z0-9]+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/);
+	if(!emailRegExp.test(emailAddress)){
+		document.getElementById("emailerror").innerHTML="&nbsp;&nbsp;Invalid Email Addreee";
+		document.getElementById("emailerror").style.color="red";
+		
+	}else{
+		document.getElementById("emailerror").innerHTML="";
+		
+	}
+	if(firstName=="" || firstName==null){
+           document.getElementById("firstError").innerHTML = "&nbsp;&nbsp;First Name is Empty";
+		   document.getElementById("firstError").style.color="red";
+		   
+	}else{
+		document.getElementById("firstError").innerHTML="";
+		
+	}
+	if(lastName=="" || lastName==null){
+           document.getElementById("lastError").innerHTML = "&nbsp;&nbsp;Last Name is Empty";
+		   document.getElementById("lastError").style.color="red";
+		   
+	}else{
+		document.getElementById("lastError").innerHTML="";
+		
+		
+	}
+	chosen = "";
+   len = document.myForm.title.length;
+
+   for (i = 0; i <len; i++) {
+    if (document.myForm.title[i].checked) {
+        chosen = document.myForm.title[i].value
+    }
+	
+}
+
+    if (chosen == "") {
+    document.getElementById("radiocheck").innerHTML = "&nbsp;&nbsp;Please Select one";
+	document.getElementById("radiocheck").style.color="red";
+    
+}
+
+
+   
+	if (
+	myForm.source1.checked == false &&
+	myForm.source2.checked == false &&
+	myForm.source3.checked == false) 
+	{
+		document.getElementById("checkcheck").innerHTML = "&nbsp;&nbsp;You need to check";
+		document.getElementById("checkcheck").style.color="red";
+		return false;
+	} else{
+		return true;
+	}
+
+
+ }
+
+
+ 
+
+</script>
+
+  <title>Feedback</title>
+ 
+  <style>
+    label {	float: left;
+			width: 150px;}
+      #container{
+          width: 700px;
+          margin: auto;
+          background-color: beige;
+      } 
+      main{
+          padding: 50px;
+      }
+  </style>
+ </head>
+ <body>
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <form method="GET"  name="myForm" id="myForm" onsubmit="return checkForm()" action="new.html" >
+			<label>Title*:</label>
+			<input class="radio" type="radio" name="title" id="miss" value="miss"/>Miss
+			<input class="radio" type="radio" name="title" id="mr" value="mr" />Mr.
+			<input class="radio" type="radio" name="title" id="mrs" value="mrs" />Mrs.<span id="radiocheck"></span>
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text"  name="firstName" id="firstName"  placeholder="First Name" onblur="judgeFirstName(document.myForm.firstName.value)" /><span id="firstError"></span>	
+			<br><br>
+			
+
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" onblur="judgeLastName(document.myForm.lastName.value)"/><span id="lastError"></span>
+			<br><br>
+			
+
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" onblur="judgeEmail(document.myForm.emailId.value)"/><span id="emailerror"></span>
+			<br><br>
+			
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" onblur="judgePhoneNumber(document.myForm.phoneNumber.value)"/><span id="phoneNumbererror"></span>
+			<br><br>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" onblur="judgeZipcode(document.myForm.zipcode.value)"/><span id="zipcodeerror"></span>
+			<br><br>
+
+			<lable for = "drinks"> Drinks : </lable>
+			<select id = "mySelect" onchange="selectFunction()">
+						<option value = "Large Size"> Hot Black Tea-Keemun</option>
+						<option value = "Extra Small Size"> Latte-Ali</option>
+						<option value = "Medium Size"> Orange juice-Peter</option>
+						<option value = "Small Size"> Cappuccino-Dan</option>
+						<option value = "Extra Large Size"> Americano-Mingda</option>
+			</select>	
+			<br><br>
+
+			<lable id = "myCheck">Large Size</lable>  <input id = "check" type="checkbox" name="checkbox1" value="checkbox" onclick="handleClick(this)">
+			<br><br>
+
+			<input   style="display: none;" name="textarea" id="textarea"  onblur="judgeTextArea(document.myForm.textarea.value)"></input><span id="texEr"></span>
+			<br><br>
+
+            <label for="zipcode">How did you hear*:</label>
+			<input type='checkbox' name="source1" value="facebook" /> facebook
+            <input type='checkbox' name="source2" value="google" /> google
+            <input type='checkbox' name="source3" value="yelp" /> Yelp <span id="checkcheck"></span>
+			<br><br> 
+
+				
+			<label for="comments">Comments*:</label>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25" onblur="judgeComments(document.myForm.comments.value)"></textarea><span id="commentsError"></span>
+			<br><br>
+			
+			<input type="Submit" οnclick="checkForm()" id="checkqw">
+			<input type="Reset">
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+
+ <script>
+ 
+ </script>
+
+ </body>
+</html>

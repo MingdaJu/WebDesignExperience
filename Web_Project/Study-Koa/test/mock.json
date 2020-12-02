@@ -1,0 +1,131 @@
+{
+  "posts": [
+    { "id": 1, "title": "json", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" },
+  "acadamylist": [{
+    "value" : "1",
+    "label": "信息与通信工程学院",
+    "key": "tongxin"
+  }, 
+  {
+    "value": "2",
+    "label": "电子工程学院",
+    "key": "dianzi"
+  }, 
+  {
+    "value": "3",
+    "label": "计算机学院",
+    "key": "jisuanji"
+  }, 
+  {
+    "value": "4",
+    "label": "自动化院",
+    "key": "zidonghua"
+  }, {
+    "value": "5",
+    "label": "软件学院",
+    "key": "ruanjian"
+  },{
+    "value": "6",
+    "label": "数字媒体与设计艺术学院",
+    "key": "shumei"
+  }],
+  "moreAcadamys": [{
+    "value": "7",
+    "label": "理学院",
+    "key": "lixueyuan"
+  },{
+    "value": "8",
+    "label": "经济管理学院",
+    "key": "jingguan"
+  },{
+    "value": "9",
+    "label": "公共管理学院",
+    "key": "gongguan"
+  },{
+    "value": "10",
+    "label": "人文学院",
+    "key": "renwen"
+  },{
+    "value": "11",
+    "label": "国际学院",
+    "key": "guoji"
+  },{
+    "value": "12",
+    "label": "网络教育学院",
+    "key": "wangjiao"
+  },{
+    "value": "13",
+    "label": "继续教育学院",
+    "key": "jijiao"
+  },{
+    "value": "13",
+    "label": "民族教育学院",
+    "key": "minjiao"
+  }],
+  "acadamyFile": {
+    "jisuanji": "",
+    "xingtong": ""
+  },
+  "question": [
+    {
+      "quesAcadamy": "计算机院",
+      "quesTitle": "变形空间是什么意思",
+      "quesDescrip": "人工智能里提到的变形空间",
+      "quesTime": "2017-10-31",
+      "ansNum": "3"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃烤翅",
+      "quesDescrip": "蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia蜜汁味道的hiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "8"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃小蛋糕",
+      "quesDescrip":"带巧克力涂层的hiahiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "1"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃烤翅",
+      "quesDescrip": "蜜汁味道的hiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "8"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃小蛋糕",
+      "quesDescrip":"带巧克力涂层的hiahiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "1"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃烤翅",
+      "quesDescrip": "蜜汁味道的hiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "8"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃小蛋糕",
+      "quesDescrip":"带巧克力涂层的hiahiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "1"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃烤翅",
+      "quesDescrip": "蜜汁味道的hiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "8"
+    },{
+      "quesAcadamy": "计算机院",
+      "quesTitle": "想吃小蛋糕",
+      "quesDescrip":"带巧克力涂层的hiahiahiahia",
+      "quesTime": "2017-9-30",
+      "ansNum": "1"
+    }
+  ]
+}

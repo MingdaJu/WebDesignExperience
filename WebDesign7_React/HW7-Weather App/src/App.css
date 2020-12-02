@@ -1,0 +1,73 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #777777;
+  font-size: 2.5rem;
+}
+
+main h1 {
+  text-align: center;
+}
+
+.forecastDays {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forecastDay {
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecastIcon {
+  font-size: 7rem;
+}
+
+.temperature span {
+  padding: 0 1rem;
+}
+
+.temperature span:first-child {
+  color: #d9534f;
+}
+
+.temperature span:last-child {
+  color: #5bc0de;
+}
+
+.hoursList {
+  display: flex;
+  font-size: 1.8rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-top: 0.1rem solid #a39f9d;
+  justify-content: center;
+  align-items: center;
+  color: #777777;
+}
+
+.hourCard {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hourCard p {
+  margin: 0.1rem 0;
+}
+
+.hourCard p:last-child {
+  color: #d9534f;
+}
+
+.selected {
+  border: 0.1rem solid #a39f9d;
+}
